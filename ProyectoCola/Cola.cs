@@ -1,4 +1,6 @@
-﻿namespace ProyectoCola
+﻿using System;
+
+namespace ProyectoCola
 {
     internal class Cola
     {
@@ -30,33 +32,110 @@
                 return false;
         }
 
+        public int Count()
+        {
+            return count;
+        }
+
+        //******************************************************************************
+        //*                             METODOS DE FUNCIONAMIENTO                      *
+        //******************************************************************************
+
+        public void InsertarTamano(int cantidad)
+        {
+            if (cantidad <= 0)
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("La cantidad a agregar debe ser mayor a 0");
+                Console.ResetColor();
+            }
+
+            inicio = null;
+            count = 0;
+            Max = cantidad;
+
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            Console.WriteLine($"Capacidad de la cola incrementada.\nNuevo tope maximo: {Max}");
+            Console.ResetColor();
+        }
 
         public void Print()
         {
+            if (underflow())
+            {
+                Console.ForegroundColor = ConsoleColor.Red; 
+                Console.WriteLine("La cola está vacía, no existe ningún valor.");
+                Console.ResetColor();
+            }
+            else
+            {
+                Console.ForegroundColor = ConsoleColor.Green;
+                Console.WriteLine("Contenido de la cola:");
 
+                Nodo act = inicio;
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+                while (act != null)
+                {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write($"[{act.Valor}] ");
+
+                   
+                    if (act.Sig != null)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Cyan; 
+                        Console.Write("->"); 
+                    }
+
+                    Console.ResetColor();
+                    act = act.Sig;
+                }
+                Console.ResetColor(); 
+                Console.WriteLine();
+            }
         }
 
-        public int Count()
+        public bool Insert(int num)
         {
+            if (overflow())
+            {
+                Console.ForegroundColor = ConsoleColor.Red; 
+                Console.WriteLine("La cola está llena, no se puede insertar más datos.");
+                Console.ResetColor();
+                return false;
+            }
+            else
+            {
+                Nodo nuevoNodo = new Nodo(num);
+                nuevoNodo.Sig = inicio;
+                inicio = nuevoNodo;
+                count++;
 
-        }
-
-        public bool Insert()
-        {
-            /* regresa true al insertar exitosamente,
-             * regresa false si la esta llena y no se
-             * puso insertar
-             */
-
+                Console.ForegroundColor = ConsoleColor.Cyan;
+                Console.WriteLine($"Se ha insertado el valor {num} exitosamente en la cola.");
+                Console.ResetColor();
+                return true;
+            }
         }
 
         public int Extract()
         {
-            /* Regresa el valor extraido de la cola 
-             * si la cola esta vacia regresa -1 por que
-             * no puso extraer
-             */
+            if (underflow())
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("La cola está vacía, no se puede extraer ningún valor.");
+                Console.ResetColor();
+                return -1;
+            }
 
+            int valorExtraido = inicio.Valor;
+            inicio = inicio.Sig;
+            count--;
+
+            Console.ForegroundColor = ConsoleColor.Magenta; 
+            Console.WriteLine($"Se ha extraído el valor {valorExtraido} de la cola.");
+            Console.ResetColor();
+            return valorExtraido;
         }
     }
 }

@@ -2,17 +2,13 @@
 {
     internal class Nodo
     {
-        private int valor;
+        public int Valor { get; set; }
+        public Nodo Sig { get; set; }
 
-        private Nodo sig;
-
-        public Nodo(int Valor)
+        public Nodo(int valor)
         {
-            this.Valor = Valor;
+            Valor = valor;
             Sig = null;
         }
-
-        public int Valor { get => valor; set => valor = value; }
-        internal Nodo Sig { get => sig; set => sig = value; }
     }
 }

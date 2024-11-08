@@ -1,0 +1,7 @@
+C:\Users\Omar Campos\Documents\Trabajos4toCuatrimestre\Estructura de datos\ProyectoCola\ProyectoCola\bin\Debug\ProyectoCola.exe.config
+C:\Users\Omar Campos\Documents\Trabajos4toCuatrimestre\Estructura de datos\ProyectoCola\ProyectoCola\bin\Debug\ProyectoCola.exe
+C:\Users\Omar Campos\Documents\Trabajos4toCuatrimestre\Estructura de datos\ProyectoCola\ProyectoCola\bin\Debug\ProyectoCola.pdb
+C:\Users\Omar Campos\Documents\Trabajos4toCuatrimestre\Estructura de datos\ProyectoCola\ProyectoCola\obj\Debug\ProyectoCola.csproj.AssemblyReference.cache
+C:\Users\Omar Campos\Documents\Trabajos4toCuatrimestre\Estructura de datos\ProyectoCola\ProyectoCola\obj\Debug\ProyectoCola.csproj.CoreCompileInputs.cache
+C:\Users\Omar Campos\Documents\Trabajos4toCuatrimestre\Estructura de datos\ProyectoCola\ProyectoCola\obj\Debug\ProyectoCola.exe
+C:\Users\Omar Campos\Documents\Trabajos4toCuatrimestre\Estructura de datos\ProyectoCola\ProyectoCola\obj\Debug\ProyectoCola.pdb
