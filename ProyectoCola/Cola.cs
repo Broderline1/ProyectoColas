@@ -61,7 +61,7 @@ namespace ProyectoCola
 
         public void Print()
         {
-            if (underflow())
+            if (underflow() == true)
             {
                 Console.ForegroundColor = ConsoleColor.Red; 
                 Console.WriteLine("La cola está vacía, no existe ningún valor.");
@@ -102,19 +102,30 @@ namespace ProyectoCola
                 Console.ForegroundColor = ConsoleColor.Red; 
                 Console.WriteLine("La cola está llena, no se puede insertar más datos.");
                 Console.ResetColor();
-                return false;
+                return true;
             }
             else
             {
                 Nodo nuevoNodo = new Nodo(num);
-                nuevoNodo.Sig = inicio;
-                inicio = nuevoNodo;
-                count++;
+                nuevoNodo.Sig = null;
 
+                if (inicio == null)
+                {
+                    inicio = nuevoNodo;
+                }
+                else
+                {
+                    Nodo act = inicio;
+                    while (act.Sig != null)
+                    { act = act.Sig; }
+
+                    act.Sig = nuevoNodo;
+                    count++;
+                }
                 Console.ForegroundColor = ConsoleColor.Cyan;
                 Console.WriteLine($"Se ha insertado el valor {num} exitosamente en la cola.");
                 Console.ResetColor();
-                return true;
+                return false;
             }
         }
 
